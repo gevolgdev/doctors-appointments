@@ -13,6 +13,8 @@ Meu intuito com esse projeto é reforçar conteitos básicos de:
 ```shell
 npm install react-icons @types/styled-components
 ```
+
+
 # Registro de desenvolvimento
 Então vamos começar nosso aplicativo?
 
