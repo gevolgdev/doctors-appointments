@@ -11,12 +11,10 @@ Meu intuito com esse projeto é reforçar conteitos básicos de:
 
 ### Dependências
 ```shell
-npm install react-icons @types/styled-components
+npm install react-router-dom @types/react-router-dom  @types/styled-components styled-components react-icons 
 ```
-
 
 # Registro de desenvolvimento
 Então vamos começar nosso aplicativo?
 
-#### Organizar estrutura de pastas
-ë isso
+#### Title
