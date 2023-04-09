@@ -11,6 +11,10 @@ export const HomeContainer = styled.section`
     gap: 50px;
     margin-top: 100px;
 
+    a {
+      text-decoration: none;
+    }
+
     button {
       display: flex;
       align-items: center;

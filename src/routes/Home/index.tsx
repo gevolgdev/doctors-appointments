@@ -1,6 +1,7 @@
 import { MouseEvent } from 'react';
 import { HomeContainer } from "./style";
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 interface ButtonProps {
@@ -21,12 +22,14 @@ const Home = () => {
     <HomeContainer>
       <div className='home-content'>
        {buttons.map((button) => (
-        <button key={button.id} className={button.class}>
-          <span>
-            <MdOutlineKeyboardArrowRight/>
-          </span>
-          {button.title}
-        </button>
+        <Link to={`/${button.link}`}>
+          <button key={button.id} className={button.class}>
+            <span>
+              <MdOutlineKeyboardArrowRight/>
+            </span>
+            {button.title}
+          </button>
+        </Link>
        ))}
       </div>
     </HomeContainer>
