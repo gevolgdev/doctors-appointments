@@ -49,5 +49,23 @@ export const MarkContent = styled.div`
       background: #F7F5F7;
       border-radius: 10px;
     }
+
+  }
+  button {
+    width: 400px;
+    height: 52px;
+    padding: 0 15px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    background: #7AE284;
+    color: #0B181D;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    &:hover {
+      background: #4EC559;
+    }
   }
 `;

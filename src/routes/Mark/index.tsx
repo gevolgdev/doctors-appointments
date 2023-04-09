@@ -17,9 +17,13 @@ const Mark = () => {
 
   const [appointments, setAppointments] = useState<AppointmentsProps | null>(null);
 
+  // Salvar todas as infos em um objeto;
+  // setar ele no nosso `appointments`;
+  // Adicionar no Redux;
+
   function handleAddAppointments() {
-    
-  }
+
+  };
 
   const doctors: TypeProps[] = [
     {id: 1, option: 'Ricardo'},
@@ -73,6 +77,10 @@ const Mark = () => {
           <span>Hora</span>
           <input type="time"/>
         </div>
+
+        <button>
+          Marcar consulta
+        </button>
       </MarkContent>
     </MarkContainer>
   )
