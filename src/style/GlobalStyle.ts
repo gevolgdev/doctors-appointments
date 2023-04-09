@@ -6,5 +6,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Inter', sans-serif;
     background: #0B181D;
+    font-size: 16px;
   }
 `

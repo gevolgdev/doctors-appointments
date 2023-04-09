@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 // Pages
-import { Home, Dashboard } from './routes'
+import { Home, Dashboard, Mark } from './routes'
 // Router
 import { createBrowserRouter,  RouterProvider } from 'react-router-dom'
 
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard/>,
+      },
+      {
+        path: '/mark',
+        element: <Mark/>,
       },
     ]
   }
