@@ -1,30 +1,48 @@
 import { useState } from 'react'
 import { MarkContainer, MarkContent } from "./style";
-
-interface TypeProps {
-  id: number;
-  option: string;
-};
-
-interface AppointmentsProps {
-  doctor: string;
-  subject: string;
-  date: string;
-  time: string;
-}
+import { TypeProps, AppointmentsProps } from '../../types/types';
 
 const Mark = () => {
 
-  const [appointments, setAppointments] = useState<AppointmentsProps | null>(null);
+  const INIITAL_APPOINTMENTS: AppointmentsProps = {
+    doctor: '',
+    subject: '',
+    date: '',
+    time: '',
+  }
+  const [appointments, setAppointments] = useState<AppointmentsProps>(INIITAL_APPOINTMENTS);
 
   // Salvar todas as infos em um objeto;
   // setar ele no nosso `appointments`;
   // Adicionar no Redux;
 
-  function handleAddAppointments() {
-
+  function handleAddAppointmentsSelect(event: React.ChangeEvent<HTMLSelectElement | null>): void {
+    const { id, value } = event.target;
+    setAppointments((prev) => ({
+      ...prev,
+      [id]: value,
+    }))
   };
+  function handleAddAppointmentsInput(event: React.ChangeEvent<HTMLInputElement | null>): void {
+    const { id, value } = event.target;
 
+    if (id === 'date') {
+      const [year, month, day] = value.split('-');
+      const date: Date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      const formattedDate: string = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+      setAppointments((prev) => ({
+        ...prev,
+        [id]: formattedDate,
+      }))
+    } else {
+      setAppointments((prev) => ({
+        ...prev,
+        [id]: value,
+      }))
+    }
+  };
+  console.log(appointments)
+  
   const doctors: TypeProps[] = [
     {id: 1, option: 'Ricardo'},
     {id: 2, option: 'Rodolfo'},
@@ -46,7 +64,7 @@ const Mark = () => {
 
         <div className="inputs-content">
           <span>Médico</span>
-          <select>
+          <select id='doctor' value={appointments.doctor} onChange={handleAddAppointmentsSelect}>
             <option value="" disabled selected>-----</option>
             {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.option}>
@@ -58,7 +76,7 @@ const Mark = () => {
 
         <div className="inputs-content">
           <span>Assunto</span>
-          <select>
+          <select id='subject' value={appointments.subject} onChange={handleAddAppointmentsSelect}>
             <option value="" disabled selected>-----</option>
             {subjects.map((subject) => (
               <option key={subject.id} value={subject.option}>
@@ -70,12 +88,12 @@ const Mark = () => {
 
         <div className="inputs-content">
           <span>Data</span>
-          <input type="date"/>
+          <input id='date' type="date" value={appointments.date} onChange={handleAddAppointmentsInput}/>
         </div>
 
         <div className="inputs-content">
           <span>Hora</span>
-          <input type="time"/>
+          <input id='time' type="time" value={appointments.time} onChange={handleAddAppointmentsInput}/>
         </div>
 
         <button>
