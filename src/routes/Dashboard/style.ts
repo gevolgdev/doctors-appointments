@@ -9,6 +9,7 @@ export const DashContent = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 80px;
+  padding: 0 15px;
 
   h1 {
     font-size: 2rem;
@@ -28,6 +29,14 @@ export const DashContent = styled.div`
     opacity: 60%;
   }
 
+  @media (max-width: 500px) {
+    padding-bottom: 80px;
+    width: 100%;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
 `
 
 export const Patient = styled.div`
@@ -42,7 +51,7 @@ export const Patient = styled.div`
   .content {
     display: flex;
     flex-direction: column;
-    margin: 15px 0;
+    margin: 10px 0;
 
     h3 {
       font-size: 1.5rem;
@@ -61,6 +70,10 @@ export const Patient = styled.div`
     width: 100%;
     height: 1px;
     background: #0B181D;
-    margin: 5px 0;
+    margin: 15px 0;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `

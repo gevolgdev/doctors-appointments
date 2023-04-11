@@ -25,6 +25,7 @@ export const HomeContainer = styled.section`
       border-radius: 90px;
       padding: 80px;
       border: none;
+      text-align: center;
 
       font-size: 3rem;
       font-weight: 500;
@@ -62,8 +63,17 @@ export const HomeContainer = styled.section`
   }
 
   @media (max-width: 1366px) {
+    padding: 0 15px 80px;
     .home-content {
       margin-top: 50px;
+      flex-direction: column;
+
+      button {
+        border-radius: 70px;
+        padding: 20px;
+        height: 350px;
+        font-size: 2.4rem;
+      }
     }
   }
 
