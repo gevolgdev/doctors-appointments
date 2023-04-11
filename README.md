@@ -2,10 +2,10 @@
 Bem-vindos ao meu repositório do aplicativo de agendar consultas medicas.
 
 ### Resumo
-Este aplicativo se consiste um marcador de consultas medicas. Basicamente serão dois componentes principais. O primeiro vai registrar todas as informações da consulta médica como: Médico, especialidade, data, horário, clínica e descrição. O outro componente seria o Dashboard do administrador que irá ver todas as consultas agendadas.
+Este aplicativo se consiste um marcador de consultas medicas. Basicamente serão dois componentes principais. O primeiro vai registrar todas as informações da consulta médica como: Nome, assunto, data e horário. O outro componente seria o Dashboard do administrador que irá ver todas as consultas agendadas.
 
 ### Aprendizado
-Meu intuito com esse projeto é reforçar conteitos básicos de:
+Meu objetivo com esse projeto é reforçar conteitos básicos de:
 - Typescript
 - Redux.
 
@@ -20,7 +20,7 @@ Então vamos começar nosso aplicativo?
 Em resumo, o algoritmo se consiste em: 
 
 1. Coletar informações de consulta do usuário;
-2. Salvar esse objeto no redux;
+2. Salvar esse objeto no Redux;
 3. Retonar essas informações na página "Dashboard"; 
 
 
@@ -29,8 +29,8 @@ Para coletar essas informações, eu crio duas funções, uma para o `select`, e
 
 A função do "select" se consiste no seguinte: 
 - Ao criar a função ela recebe o argumento de event e sua tipagem.
-- Dentro da função eu desestruturo o `event.target.value` e declaro o `setAppointments`.
-- Crio um objeto com a chave `id` do select e o valor é o `event.target.value`.
+- Dentro da função eu desestruturo o `event.target.value` e o declaro dentro de `setAppointments`.
+- Crio um objeto com a propriedade `id` do select e o valor é o `event.target.value`.
 
 ```tsx
 function handleAddAppointmentsSelect(event: React.ChangeEvent<HTMLSelectElement | null>): void {
@@ -57,7 +57,7 @@ function handleAddAppointmentsInput(event: React.ChangeEvent<HTMLInputElement | 
 Pronto, primeira etapa finalizada e informações de consulta médica já salvas em um objeto.
 
 ### ✅ Salvar esse objeto no redux
-- Agora vamos usar o Redux para gerenciar nosso estado da apliacação. Primeiro criamos uma `store.ts` onde irá gerar nosso `reducer` que recebe um estado anterior e uma ação, e retorna um novo estado modificado baseado na ação.
+- Agora vamos usar o Redux para gerenciar nosso estado da apliacação. Primeiro criamos um arquivo `store.ts` onde irá gerar nosso `reducer` que recebe um estado anterior e uma ação, e retorna um novo estado modificado baseado na ação.
 
 ```ts
 import { configureStore } from '@reduxjs/toolkit';
@@ -85,7 +85,7 @@ const sliceAppointments = createSlice({
   initialState: INITIAL_STATE,
   // Reducer
   reducers: {
-    // Função que atualiza o Reducer/ Slice
+    // Função que gerencia o Reducer/Slice
     addAppointments(state, {payload}: PayloadAction<AppointmentsProps>) {
       return [
         ...state, 
@@ -148,6 +148,6 @@ const newAppointments: AppointmentsProps[] = appointments.slice(1)
 - Faço um `map()` nesse novo array sem o primeiro index.
 
 # 🎉 E esse foi meu primeiro projeto usando Typescript e Redux. 🎉
-😎 Obrigado e aguardem os próximos projetos!!
-<a href='https://instagram.com/gevolgdev'>Link do Reels desse Projeto</a>
+😎 Obrigado e aguardem os próximos projetos!!<br>
+<a href='https://www.instagram.com/p/Cq5gUhWMilY/'>Link do Reels desse Projeto</a>
 
