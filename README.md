@@ -41,33 +41,18 @@ function handleAddAppointmentsSelect(event: React.ChangeEvent<HTMLSelectElement 
   }))
 };
 ```
+- Função para os inputs
 
-A função do `input` complica mais um pouco por conta da formatação da data:
-- Fazemos uma condição para o caso o `input` de data chame a função rode apenas esse bloco de código.
-- Nele, coletamos o ano, mês e dia enviado pelo `input` e fazemos um array com strings usando `split()`.
-- Depois a instânciamos do objeto Date e passos a data desejada.
-- Fazemos uma variavel e pegamos o dia/mês/ano do Date para formatarmos a data no formato Brasileiro.
-- E depois adicionamos no nosso objeto.
 ```tsx
 function handleAddAppointmentsInput(event: React.ChangeEvent<HTMLInputElement | null>): void {
   const { id, value } = event.target;
-
-  if (id === 'date') {
-    const [year, month, day] = value.split('-');
-    const date: Date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-    const formattedDate: string = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-    setAppointments((prev) => ({
-      ...prev,
-      [id]: formattedDate,
-    }))
-  } else {
-    setAppointments((prev) => ({
-      ...prev,
-      [id]: value,
-    }))
-  }
+  setAppointments((prev) => ({
+    ...prev,
+    [id]: value,
+  }))
 };
 ```
+*Obs: Foi necessário a separação das função para `input` e `select` por conta da tipagem.*
 
 Pronto, primeira etapa finalizada e informações de consulta médica já salvas em um objeto.
 
@@ -116,6 +101,7 @@ const sliceAppointments = createSlice({
   }
 });
 ```
+
 - Exportação dos dados
 
 ```ts
@@ -128,6 +114,16 @@ export const { addAppointments } = sliceAppointments.actions
 export const useAppointments = (state: any) => {
   return state.appointments as AppointmentsProps[]
 }
+```
+
+- Colocamos o slice agora no `store.ts`
+
+```ts
+const store = configureStore({
+  reducer: {
+    appointments: sliceAppointments,
+  },
+}); 
 ```
 
 - Para adicionar dados fazemos um função que ira ser chamado em `onClick()`. Usamos o hook do Redux `dispatch()`, passamos dentro dele a função que gerencia o estado do Slice `useAppointments()` e dentro passamos os dados que será salvo `{appointments}`.
