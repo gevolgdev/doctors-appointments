@@ -4,8 +4,9 @@ export interface TypeProps {
 };
 
 export interface AppointmentsProps {
-  doctor: string;
+  name: string;
   subject: string;
-  date: string;
+  day: string;
+  mounth: string;
   time: string;
 }
