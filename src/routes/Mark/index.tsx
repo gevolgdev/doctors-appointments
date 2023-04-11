@@ -3,6 +3,7 @@ import { MarkContainer, MarkContent } from "./style";
 import { TypeProps, AppointmentsProps } from '../../types/types';
 import { useDispatch } from 'react-redux';
 import { addAppointments } from '../../redux/sliceAppointments';
+import Toast from '../../components/Toast';
 
 const Mark = () => {
 
@@ -14,6 +15,7 @@ const Mark = () => {
     time: '',
   };
   const [appointments, setAppointments] = useState<AppointmentsProps>(INIITAL_APPOINTMENTS);
+  const [toast, setToast] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -30,7 +32,7 @@ const Mark = () => {
     setAppointments((prev) => ({
       ...prev,
       [id]: value,
-    }))
+    }));
   };
   
   function daysOfMounth(): string[] {
@@ -38,18 +40,20 @@ const Mark = () => {
     for(let i = 1; i <= 31; i++) {
       days.push(`
         ${ i < 10 ? `0${i}` : `${i}`}
-      `)
+      `);
     }
     return days;
   };
 
   function handleNewAppointments(): void {
-    dispatch(addAppointments(appointments))
-    setAppointments(INIITAL_APPOINTMENTS)
+    dispatch(addAppointments(appointments));
+    setAppointments(INIITAL_APPOINTMENTS);
+    setToast(true);
     setTimeout(() => {
-      alert('Consulta agendada, aguarde confirmação!')
-    }, 500)
-  }
+      setToast(false);
+    }, 3000);
+    
+  };
 
   const mounths: string[] = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
@@ -69,6 +73,7 @@ const Mark = () => {
 
   return (
     <MarkContainer>
+      { toast && <Toast/>}
       <MarkContent>
         <h1>Agende sua consulta</h1>
         <div className="inputs-content">

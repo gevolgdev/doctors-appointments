@@ -4,7 +4,7 @@ export const MarkContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 50px;
-`;
+  `;
 
 export const MarkContent = styled.div`
   display: flex;
