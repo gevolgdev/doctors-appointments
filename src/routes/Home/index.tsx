@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 interface ButtonProps {
   id: number;
-  title: string;
+  title: React.ReactElement;
   link: string;
   class: string;
 };
@@ -14,8 +14,8 @@ interface ButtonProps {
 const Home = () => {
 
   const buttons: ButtonProps[] = [
-    {id: 1, title: 'Agente sua consulta!', link: 'mark', class: 'button-1'},
-    {id: 2, title: 'Consultas agendadas!', link: 'dashboard', class: 'button-2'},
+    {id: 1, title: <p>Sou<br/> paciente!</p>, link: 'mark', class: 'button-1'},
+    {id: 2, title: <p>Sou<br/> médico!</p>, link: 'dashboard', class: 'button-2'},
   ];
 
   return (

@@ -4,17 +4,17 @@ export const ToastContainer = styled.div`
   width: 100%;
   height: 80px;
   position: fixed;
-  bottom: 20px;
+  top: 50px;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 5px;
+  padding: 0 15px;
   z-index: 100;
   
   div {
     position: relative;
-    padding: 0 35px;
+    padding: 10px 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,10 +23,10 @@ export const ToastContainer = styled.div`
     height: 100%;
     gap: 10px;
     border-radius: 7px;
-    color: #0B181D;
+    color: white;
 
     svg {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
   }
 `

@@ -7,6 +7,8 @@ export const HomeContainer = styled.section`
   .home-content {
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     gap: 50px;
     margin-top: 100px;
@@ -22,6 +24,7 @@ export const HomeContainer = styled.section`
       flex-direction: column;
       flex: 1;
       height: 450px;
+      width: 350px;
       border-radius: 90px;
       padding: 80px;
       border: none;

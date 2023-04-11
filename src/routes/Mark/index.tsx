@@ -51,7 +51,7 @@ const Mark = () => {
     setToast(true);
     setTimeout(() => {
       setToast(false);
-    }, 3000);
+    }, 4000);
     
   };
 
