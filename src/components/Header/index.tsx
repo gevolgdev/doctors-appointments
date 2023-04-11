@@ -1,12 +1,13 @@
 import { HeaderContainer } from './style'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <h1 className='title'>
+      <Link to='/' className='title'>
         Gevolg
         <span>consultas</span>
-      </h1>
+      </Link>
     </HeaderContainer>
   )
 }
