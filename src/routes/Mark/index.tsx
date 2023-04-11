@@ -35,16 +35,6 @@ const Mark = () => {
     }));
   };
   
-  function daysOfMounth(): string[] {
-    const days: string[] = [];
-    for(let i = 1; i <= 31; i++) {
-      days.push(`
-        ${ i < 10 ? `0${i}` : `${i}`}
-      `);
-    }
-    return days;
-  };
-
   function handleNewAppointments(): void {
     dispatch(addAppointments(appointments));
     setAppointments(INIITAL_APPOINTMENTS);
@@ -53,6 +43,16 @@ const Mark = () => {
       setToast(false);
     }, 4000);
     
+  };
+
+  function daysOfMounth(): string[] {
+    const days: string[] = [];
+    for(let i = 1; i <= 31; i++) {
+      days.push(`
+        ${ i < 10 ? `0${i}` : `${i}`}
+      `);
+    }
+    return days;
   };
 
   const mounths: string[] = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
