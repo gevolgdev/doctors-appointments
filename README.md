@@ -5,7 +5,7 @@ Bem-vindos ao meu repositório do aplicativo de agendar consultas medicas.
 Este aplicativo se consiste um marcador de consultas medicas. Basicamente serão dois componentes principais. O primeiro vai registrar todas as informações da consulta médica como: Nome, assunto, data e horário. O outro componente seria o Dashboard do administrador que irá ver todas as consultas agendadas.
 
 ### Aprendizado
-Meu objetivo com esse projeto é reforçar conteitos básicos de:
+Meu objetivo com esse projeto é reforçar conceitos básicos de:
 - Typescript
 - Redux.
 
@@ -21,7 +21,7 @@ Em resumo, o algoritmo se consiste em:
 
 1. Coletar informações de consulta do usuário;
 2. Salvar esse objeto no Redux;
-3. Retonar essas informações na página "Dashboard"; 
+3. Retornar essas informações na página "Dashboard"; 
 
 
 ### ✅ Coletar informações de consulta do usuário
